@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1001%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(198%2c 198%2c 198%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c301.187C56.817%2c293.78%2c112.48%2c280.993%2c160.222%2c249.311C207.497%2c217.939%2c238.635%2c170.803%2c268.846%2c122.778C303.338%2c67.947%2c339.101%2c13.962%2c348.581%2c-50.118C360.329%2c-129.527%2c388.177%2c-230.795%2c329.211%2c-285.263C268.386%2c-341.447%2c168.545%2c-286.882%2c85.948%2c-292.714C24.913%2c-297.023%2c-31.477%2c-319.456%2c-92.504%2c-315.038C-166.676%2c-309.669%2c-252.348%2c-316.782%2c-305.137%2c-264.402C-358.125%2c-211.824%2c-354.06%2c-126.025%2c-358.108%2c-51.488C-361.861%2c17.614%2c-357.907%2c87.394%2c-327.623%2c149.62C-297.779%2c210.94%2c-251.418%2c266.271%2c-189.524%2c294.905C-130.97%2c321.993%2c-63.975%2c309.527%2c0%2c301.187' fill='%23bcbcbc'%3e%3c/path%3e%3cpath d='M1440 1156.531C1549.878 1172.1280000000002 1656.455 1098.8609999999999 1737.757 1023.319 1812.011 954.325 1829.97 849.505 1870.446 756.578 1910.09 665.561 1983.9589999999998 582.038 1972.94 483.375 1961.845 384.03200000000004 1883.338 307.748 1812.449 237.27100000000002 1745.688 170.897 1661.794 133.15699999999998 1577.838 90.56700000000001 1474.41 38.10000000000002 1378.911-52.289999999999964 1263.466-41.21900000000005 1143.8310000000001-29.74599999999998 1020.066 41.928 965.9639999999999 149.24599999999998 912.744 254.815 999.719 377.679 992.789 495.701 986.707 599.292 886.123 698.877 928.1220000000001 793.767 970.065 888.53 1107.478 885.932 1192.028 945.852 1282.35 1009.8620000000001 1330.395 1140.972 1440 1156.531' fill='%23d0d0d0'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1001'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.52),
+      rgba(11, 11, 11, 0.73)
+    ),
+    url("./bg.jpg");
+}
+
+.form-control {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.container {
+  width: 100%;
+
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  max-width: 700px;
+  border-radius: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0px 5px;
+  width: 100%;
+}
+.search-bar input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.search-bar button{
+  border :0 ;
+  width: 55px;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-right: 20px;
+  border-radius: 50px;
+  background: rgba(115, 115, 115, 0.511);
+}
+
+.container .yellow {
+  color: chocolate;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  margin: 5px;
+  text-align: Left;
+  background-color: #f1f1f1;
+  width: 75%;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.card a {
+  text-decoration: none;
+  color: chocolate;
+  text-transform: uppercase;
+  transition: 0.5s ease-in-out;
+  font-size: 20px;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.card-title {
+  display: flex;
+  justify-content: left;
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
+    width: 80%;
+  }
+
+  .form-control {
+    width: 400px;
+  }
+}
