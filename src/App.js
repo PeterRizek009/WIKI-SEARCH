@@ -1,14 +1,15 @@
-import { React, useState } from 'react';
-import SearchApp from './component/searchapp/searchapp';
+import React from 'react';
+import { useState } from 'react';
+import SearchApp from './component/searchapp/searchapp.jsx';
 import About from './component/about/about.jsx';
 import SavedSearches from './component/savedsearches/savedsearches';
-import Navbar from './component/navbar/navbar';
-import Footer from './component/footer/footer';
+import Navbar from './component/navbar/navbar.jsx';
+import Footer from './component/footer/footer.jsx';
 import {Routes, Route } from "react-router-dom";
 import './app.css'
 
 
-function App() {
+const App = () => {
         const[saved , setSaved]= useState([]);
 
   return (
@@ -20,9 +21,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/savedsearches" element={<SavedSearches saved={saved}/>} />
         </Routes >
-
+      
     </div >
-        <Footer/>
+    <Footer/>
         </>
   );
 }

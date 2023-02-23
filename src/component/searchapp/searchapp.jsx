@@ -2,17 +2,29 @@ import React from 'react'
 import { useEffect, useState, useRef } from 'react'
 import axios from 'axios'
 import './searchapp.css'
+import Pagination from '@mui/material/Pagination';
+
 
 
 const SearchApp = ({ saved }) => {
+
     const [term, setTerm] = useState(' ')
     const [debounceSearch, setDebounceSearch] = useState(term)
-    const [result, setResult] = useState([])
 
     const [bookmark, setBookmark] = useState(false);
 
-    console.log(saved);
+
+    const [result, setResult] = useState([])
+    const [currentPage, setCurrentPage] = useState(1);
+    const [resultPerPage] = useState(5);
+
+
     const ref = useRef();
+
+
+    const indexOfLastCard = currentPage * resultPerPage;
+    const indexOfFirstCard = indexOfLastCard - resultPerPage;
+
     useEffect(() => {
         const timeout = setTimeout(() => {
             setDebounceSearch(term)
@@ -37,14 +49,24 @@ const SearchApp = ({ saved }) => {
 
         }
         search()
+      
     }, [debounceSearch]);
 
-    const handleBookmark = () => {
-        setBookmark(!bookmark);
-        saved.push(term)
-    }
 
-    const fetchResult = result.map((el) => {
+
+    
+
+    console.log(indexOfFirstCard);
+
+
+    const handleChange = (p) => {
+        setCurrentPage(p);
+        
+    };
+
+
+
+    const fetchResult = result.slice(indexOfFirstCard,indexOfLastCard).map((el) => {
         return (
             <div className="card" key={el.pageid} ref={ref}>
                 <div className="card-title">
@@ -52,21 +74,28 @@ const SearchApp = ({ saved }) => {
                 </div>
                 <p><span dangerouslySetInnerHTML={{ __html: el.snippet }} /></p>
             </div>
+
         )
     })
+
+    const handleBookmark = () => {
+        setBookmark(!bookmark);
+        saved.push(term)
+    }
+
+
 
     return (
         <div className='container'>
             <div className='search-bar'>
-                    <input
-                        type='text'
-                        className='search'
-                       
-                        onChange={(e) => setTerm(e.target.value)}
-                        value={term}/>
-                         <button type="button">  <i className="fas fa-search p-2"></i></button>
-                     
-               
+                <input
+                    type='text'
+                    className='search'
+
+                    onChange={(e) => setTerm(e.target.value)}
+                    value={term} />
+                <button type="button">  <i className="fas fa-search p-2"></i></button>
+
 
                 {/* <div onClick={handleBookmark} className="mx-1 mt-4" >
                     {bookmark === true ?
@@ -80,6 +109,13 @@ const SearchApp = ({ saved }) => {
 
             <div className="card-container">
                 {fetchResult}
+                <Pagination
+                    count={4}
+                    size="large"
+                    color="primary"
+                    shape="rounded"
+                    onChange={handleChange}
+                />
             </div>
         </div>
 
